@@ -16,7 +16,15 @@ public class ReservaTest {
                     "La Paz, 2, 23, 3,2023,Martes,true, el dia Martes 23 Marzo 2023 existen 2 pasajes para La Paz",
                     "La Paz, 0, 23, 3,2023,Miercoles,true, CANTIDAD NO VALIDA",
                     "La Paz, -5, 23, 3,2023,Jueves,true, CANTIDAD NO VALIDA",
-                    "Santa Cruz, 20, 28, 3,2023,Viernes,true, CANTIDAD NO VALIDA",
+                    "Santa Cruz, 20, 28, 13,2023,Viernes,true, FECHA NO VALIDA",
+                    "Santa Cruz, 20, 29, 2,2023,Viernes,true, FECHA NO VALIDA",
+                    "Santa Cruz, 20, 29, 2,2024,Sabado,true, el dia Sabado 29 Febrero 2024 existen 20 pasajes para Santa Cruz",
+                    "Santa Cruz, 20, 29, 2,-2023,Viernes,true, FECHA NO VALIDA",
+                    "Cochabamba, 81, 23, 3,2023,Domingo,true, CANTIDAD NO VALIDA",
+                    "Cochabamba, 20, 27, 2, 2022,Viernes,true, FECHA NO VALIDA",
+                    "Cochabamba, 20, 27, 2, 2023,Viernes,true, el dia Viernes 27 Febrero 2023 existen 20 pasajes para Cochabamba",
+                    "Cochabamba, 80, 27, 2, 2023,Viernes,false, no existen suficientes pasajes para Cochabamba",
+                    "Cochabamba, 80, 27, 12, 2023,Viernes,true, no existen suficientes pasajes para Cochabamba"
             }
     )
     public void verifyMaxPrestamo(String destino, int cantidad, int dia, int mes, int gestion, String day, boolean hayPasajes, String expected){

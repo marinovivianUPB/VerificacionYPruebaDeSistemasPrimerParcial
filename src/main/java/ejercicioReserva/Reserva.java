@@ -9,10 +9,11 @@ public class Reserva {
     }
 
     public String reservaVuelo(String destino, int cantidad, int dia, int mes, int gestion){
-        if(dia < 1 || mes < 1 || gestion < 0 || dia > 31 || mes > 12 || dia>28 && mes==2 && !isLeapYear(gestion)){
+        if(dia < 1 || mes < 1 || gestion < 2023 || dia > 31 || mes > 12 || dia>28 && mes==2 && !isLeapYear(gestion) || dia>29 && mes==2 && isLeapYear(gestion)
+        || (dia > 30 && (mes==4||mes==6||mes==9||mes==11)) ){
             return "FECHA NO VALIDA";
         }
-        if(cantidad < 1){
+        if(cantidad < 1 || cantidad >80){
             return "CANTIDAD NO VALIDA";
         }
         String month="";
