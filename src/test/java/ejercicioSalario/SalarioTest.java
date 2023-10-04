@@ -1,11 +1,17 @@
 package ejercicioSalario;
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
 public class SalarioTest {
 
+    Salario salario;
+    @BeforeEach
+    public void setup(){
+        salario = new Salario();
+    }
     @ParameterizedTest
     @CsvSource(
             {
@@ -21,9 +27,28 @@ public class SalarioTest {
             }
     )
     public void verifyDescuento(double sueldo, double expectedResult) throws Exception{
-        Salario salario = new Salario();
         double actualResult = salario.descuento(sueldo);
         Assertions.assertEquals(expectedResult, actualResult,"ERROR: descuento incorrecto");
+    }
+
+    @ParameterizedTest
+    @CsvSource(
+            {
+                    "-5600",
+                    "-5500",
+                    "-4500",
+                    "-4000",
+                    "-2500",
+                    "-2001",
+                    "-2000",
+                    "-1000",
+                    "-500",
+            }
+    )
+    public void verifyDivZero(double sueldo) throws Exception {
+        Assertions.assertThrows(Exception.class, () -> {
+            salario.descuento(sueldo);
+        });
     }
 }
 //crea otro paquete que inicie con minuscula y move tu TEst, se debio cachear

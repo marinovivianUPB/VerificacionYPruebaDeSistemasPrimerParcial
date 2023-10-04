@@ -5,7 +5,7 @@ public class Salario {
     double salarioMin=2000;
     public double descuento(double sueldo) throws Exception{
         if(sueldo<0){
-            throw Exception("");
+            throw new Exception("SUELDO NO VALIDO");
         }
         double descuento=0;
         if(sueldo>(salarioMin*2)){
